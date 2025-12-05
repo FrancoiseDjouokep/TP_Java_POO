@@ -30,7 +30,7 @@ public class Emprunt {
     }
 
     public void afficherEmprunt() {
-        System.out.println("----- EMPRUNT -----");
+        System.out.println("  EMPRUNT   ");
         System.out.println("Livre : " + livre.getTitre());
         System.out.println("Membre : " + membre.getNom());
         System.out.println("Date emprunt : " + dateEmprunt);

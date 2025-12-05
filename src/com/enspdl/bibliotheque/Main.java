@@ -7,22 +7,18 @@ public class Main {
 
         Bibliotheque b = new Bibliotheque("Bibliothèque ENSPD");
 
-        // données de test
-        b.ajouterLivre(new Livre("1", "Clean Code", "Robert Martin", 2008));
-        b.ajouterLivre(new Livre("2", "Design Patterns", "GoF", 1994));
-
-        b.inscrireMembre(new Etudiant("E1", "Alice", "alice@mail.com", "Informatique"));
-        b.inscrireMembre(new Enseignant("P1", "Dr Martin", "martin@mail.com", "Informatique"));
 
         Scanner sc = new Scanner(System.in);
         int choix;
 
         do {
+            System.out.println("****Bibliotheque ENSPD****");
             System.out.println("1. Ajouter un livre");
             System.out.println("2. Inscrire un membre");
             System.out.println("3. Effectuer un emprunt");
-            System.out.println("4. Afficher livres disponibles");
-            System.out.println("5. Statistiques");
+            System.out.println("4. Rechercher un livre par son tirte");
+            System.out.println("5. Afficher livres disponibles");
+            System.out.println("6. Statistiques");
             System.out.println("0. Quitter");
             choix = sc.nextInt();
             sc.nextLine();
@@ -76,10 +72,21 @@ public class Main {
                     break;
 
                 case 4:
-                    b.afficherLivresDisponibles();
+                    System.out.print("Titre du livre à rechercher: ");
+                    String titreR = sc.nextLine();
+                    Livre found = b.rechercherLivreParTitre(titreR);
+                    if (found != null) {
+                        found.afficherDetails();
+                    } else {
+                        System.out.println("Livre introuvable pour le titre : " + titreR);
+                    }
                     break;
 
                 case 5:
+                    b.afficherLivresDisponibles();
+                    break;
+
+                case 6:
                     b.afficherStatistiques();
                     break;
             }

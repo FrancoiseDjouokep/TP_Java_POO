@@ -67,7 +67,7 @@ public class Bibliotheque {
     }
 
     public void afficherLivresDisponibles() {
-        System.out.println("----- LIVRES DISPONIBLES -----");
+        System.out.println("   LIVRES DISPONIBLES   ");
         for (int i = 0; i < nbLivres; i++) {
             if (livres[i].isDisponible()) {
                 System.out.println("- " + livres[i].getTitre());
